@@ -1,5 +1,5 @@
 #!/bin/bash
-FFMPEG='/Users/tao/ffmpeg'
+FFMPEG="`which ffmpeg`"
 
 chars=(
     'amber'     'barbara'   'beidou'    'bennett'

@@ -50,6 +50,9 @@ def learn():
     end = time()
     print('Learning Done!')
     print('Processing: %ss' % round(end - start, 2))
+    with open(MODEL_FILE, mode='wb') as f:
+        pickle.dump(clf, f, protocol=2)
+    print('model saved!')
 
     print('\nCalculating score...')
     start = time()
@@ -57,10 +60,6 @@ def learn():
     end = time()
     print('score: %s' % score)
     print('Processing: %ss' % round(end - start, 2))
-
-    with open(MODEL_FILE, mode='wb') as f:
-        pickle.dump(clf, f, protocol=2)
-    print('\nmodel saved!')
 
 
 def load():

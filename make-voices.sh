@@ -59,7 +59,9 @@ mkdir $CUT_VOICES_DIR
 for char in "${chars[@]}"; do
     mkdir "$CUT_VOICES_DIR/$char"
     for wav in `find "$VOICES_DIR/$char" -name "*.wav"`; do
+        echo -ne "\rCutting $wav..."
         filename=`basename $wav`
-        $FFMPEG -i $wav -t $min_duration -c copy "$CUT_VOICES_DIR/$char/$filename" 2>&1
+        $FFMPEG -i $wav -t $min_duration -c copy "$CUT_VOICES_DIR/$char/$filename" > /dev/null 2>&1
     done
 done
+echo ''
